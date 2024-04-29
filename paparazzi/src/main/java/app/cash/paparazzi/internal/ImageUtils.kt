@@ -48,9 +48,7 @@ internal object ImageUtils {
    * the test repeatedly to get to each new render assertion generating its thumbnail.
    */
   private val FAIL_ON_MISSING_THUMBNAIL = true
-
-  private const val THUMBNAIL_SIZE = 1000
-
+  
   @Throws(IOException::class)
   fun requireSimilar(
     relativePath: String,
@@ -374,8 +372,7 @@ internal object ImageUtils {
   }
 
   fun getThumbnailScale(image: BufferedImage): Double {
-    val maxDimension = max(image.width, image.height)
-    return THUMBNAIL_SIZE / maxDimension.toDouble()
+    return  max(image.width, image.height)
   }
 
   private fun setRenderingHints(g2: Graphics2D) {
